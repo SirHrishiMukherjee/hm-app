@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HM Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --text-color: #000000;
+            --card-bg: white;
+            --border-color: #ccc;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .toggle-container {
+            position: absolute;
+            top: 40px;
+            right: 30px;
+            text-align: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+        }
+        .toggle-switch input {
+            display: none;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 30px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #666;
+        }
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+        .mode-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
+            margin-top: 4px;
+            gap: 10px;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            margin-top: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+        .button {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+        .button:hover {
+            transform: scale(1.03);
+        }
+        .button img {
+            width: auto;
+            height: 40px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        .title {
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+        }
+        .subtitle {
+            font-family: 'Ubuntu', sans-serif;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-container">
+        <label class="toggle-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+        <div class="mode-labels">
+            <span>Light</span><span>Dark</span>
+        </div>
+    </div>
+
+    <h1>Hrishi Mukherjee</h1>
+    <div class="grid">
+        <a href="https://simulon-lang.onrender.com" target="_blank">
+            <div class="button">
+                <img src="{{ url_for('static', filename='images/simulang.png') }}" alt="SimuLang">
+                <div class="title">SimuLang</div>
+                <div class="subtitle">The primary and only language to handle infinite set problem cases for AGI and ASI. Employ one of several mechanisms from delineators and intertillage to bifurcators. Play around with Martian sol day night cycles.</div>
+            </div>
+        </a>
+        <a href="https://simulon-v1.onrender.com" target="_blank">
+            <div class="button">
+                <img src="{{ url_for('static', filename='images/contradiction.png') }}" alt="Contradiction Engine">
+                <div class="title">Contradiction Engine</div>
+                <div class="subtitle">Formulate truth statements by nesting deeper and deeper into the mind of AGI based on an origin thought, sequential contradictions, and focal points.</div>
+            </div>
+        </a>
+        <a href="https://simulon-ui.onrender.com" target="_blank">
+            <div class="button">
+                <img src="{{ url_for('static', filename='images/think.png') }}" alt="Think Engine">
+                <div class="title">Think Engine</div>
+                <div class="subtitle">Presents 10 follow up question-answer session rounds to the insert query.</div>
+            </div>
+        </a>
+        <a href="https://simulon-carto.onrender.com" target="_blank">
+            <div class="button">
+                <img src="{{ url_for('static', filename='images/carto.png') }}" alt="Carto">
+                <div class="title">Carto</div>
+                <div class="subtitle">A conjoined world-map of Moon, Earth and Mars.</div>
+            </div>
+        </a>
+        <a href="https://www.hmhorizons.com" target="_blank">
+            <div class="button">
+                <img src="{{ url_for('static', filename='images/horizons.png') }}" alt="HM Horizons">
+                <div class="title">HM Horizons</div>
+                <div class="subtitle">Shop</div>
+            </div>
+        </a>
+        <a href="https://www.hmhorizonsresearch.com" target="_blank">
+            <div class="button">
+                <img src="{{ url_for('static', filename='images/research.png') }}" alt="Research">
+                <div class="title">Research</div>
+                <div class="subtitle">All research.</div>
+            </div>
+        </a>
+        <a href="https://www.amazon.ca/s?k=hrishi+mukherjee&crid=1XCT6YRP23Y0D&sprefix=hrishi+mukherjee%2Caps%2C717&ref=nb_sb_ss_ts-doa-p_1_16" target="_blank">
+            <div class="button">
+                <img src="{{ url_for('static', filename='images/literature.png') }}" alt="Literature">
+                <div class="title">Literature</div>
+                <div class="subtitle">All literature.</div>
+            </div>
+        </a>
+        <a href="https://www.youtube.com/@hmhorizonsinc" target="_blank">
+            <div class="button">
+                <img src="{{ url_for('static', filename='images/media.png') }}" alt="Media">
+                <div class="title">Media</div>
+                <div class="subtitle">All media.</div>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        toggle.addEventListener('change', function () {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                toggle.checked = true;
+            }
+        };
+    </script>
+</body>
+</html>
