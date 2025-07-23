@@ -4,4 +4,10 @@ services:
     env: python
     buildCommand: ""
     startCommand: gunicorn app:app
-    plan: free
+    plan: starter  # Options: free, starter, standard, pro
+    region: oregon  # or frankfurt, ohio, singapore, sydney, depending on your audience
+    numInstances: 1
+    autoDeploy: true
+    envVars:
+      - key: FLASK_ENV
+        value: production
